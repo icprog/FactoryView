@@ -17,22 +17,6 @@ public:
 };
 
 
-
-class clsGpib:public clsConnection
-{
-public:
-    clsGpib();
-    bool init();
-    void setAddress(QString address);
-    QString sendCommand(QString strCommand, bool hasReturn=false);
-    void disConnect();
-private:
-    bool blInit;
-    int intAddress;
-
-};
-
-
 class connectionFactory
 {
 public:

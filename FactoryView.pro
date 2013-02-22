@@ -15,11 +15,14 @@ LIBS    += gpib488.obj
 
 SOURCES += main.cpp\
         MainTestWindow.cpp \
-    clsConnection.cpp
+    connections/clsGpib.cpp \
+    connections/clsConnection.cpp
 
 HEADERS  += MainTestWindow.h \
-    clsConnection.h \
-    gpib488.h
+    connections/gpib488.h \
+    connections/GPIB.h \
+    connections/clsGpib.h \
+    connections/clsConnection.h
 
 FORMS    += MainTestWindow.ui
 
