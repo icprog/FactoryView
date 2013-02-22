@@ -11,18 +11,24 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = FactoryView
 TEMPLATE = app
 
-LIBS    += gpib488.obj
+LIBS    += gpib488.obj \
+        visa.lib
+
 
 SOURCES += main.cpp\
         MainTestWindow.cpp \
     connections/clsGpib.cpp \
-    connections/clsConnection.cpp
+    connections/clsConnection.cpp \
+    connections/clsUsb.cpp
 
 HEADERS  += MainTestWindow.h \
     connections/gpib488.h \
     connections/GPIB.h \
     connections/clsGpib.h \
-    connections/clsConnection.h
+    connections/clsConnection.h \
+    connections/visa.h \
+    connections/visatype.h \
+    connections/clsUsb.h
 
 FORMS    += MainTestWindow.ui
 
