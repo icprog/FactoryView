@@ -96,7 +96,7 @@ QString clsUsb::sendCommand(QString strCommand, bool hasReturn)
     /*Read id string data*/
     status = viRead(instr,buffer,MAX_CNT,&retLen);
     if(retLen>0)
-        buffer[retLen]='\0';
+        buffer[retLen-1]='\0';
     strResult=QString((const char*)buffer);
 
     qDebug()<< strResult;

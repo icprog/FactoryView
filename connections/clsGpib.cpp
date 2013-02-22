@@ -21,6 +21,7 @@
 
 clsGpib::clsGpib()
 {
+    this->intAddress=6;
     this->blInit=false;
 
 }
@@ -79,30 +80,13 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn)
 
     if(!blInit)
     {
-        Send(0,intAddress,"*IDN?",strlen("*IDN?"),DABend);
-        char data[50];
-        Receive (0,intAddress, data, 50, STOPend);
-
-        QString strData = QString(data);
-        QStringList strDataList = strData.split('\n');
-        if(strDataList.count()>1)
-        {
-            strData =strDataList[0];
-        }
-        else
-            strData="";
-
-        if(strData.isEmpty())
-        {
-            blInit=false;
-            return "";
-        }
-        else
-        {
-            blInit = true;
-        }
+        init();
     }
 
+    if(!blInit)
+        return "";
+
+    strCommand = strCommand.append('\n');
     const char *cmd;
     std::string xx= strCommand.toStdString();
     cmd = xx.c_str();
