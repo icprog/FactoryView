@@ -31,6 +31,7 @@ bool clsLan::init()
     return true;
 }
 
+//Address formate "192.168.1.45,6500"
 void clsLan::setAddress(QString address)
 {
     QStringList list = address.split(",");
@@ -40,10 +41,15 @@ void clsLan::setAddress(QString address)
         this->strIp = (QString)list.at(0);
         this->intPort=WK4300PORT;
     }
+    else if(QString(list.at(1)).contains("6500"))
+    {
+        this->strIp=(QString)list.at(0);
+        this->intPort=WK6500PORT;
+    }
     else
     {
         this->strIp=(QString)list.at(0);
-        this->intPort=((QString)list.at(1)).toInt();
+        this->intPort=WK4300PORT;
     }
 
 }
@@ -68,7 +74,8 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn)
     socket->waitForBytesWritten(5000);
   //  qDebug()<< "write command finished!";
 
-    if(!hasReturn)
+    /*This is just for 6500 need read back but 4300 does't need it.*/
+    if(this->intPort==WK4300PORT && (!hasReturn))
         return "";
 
     socket->waitForReadyRead(5000);

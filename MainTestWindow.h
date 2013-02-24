@@ -4,6 +4,7 @@
 #include "ui_MainTestWindow.h"
 #include "connections/clsLan.h"
 #include "clsLanTest.h"
+#include "connections/clsGpib.h"
 class MainTestWindow : public QMainWindow, private Ui::MainTestWindow
 {
     Q_OBJECT
@@ -13,7 +14,7 @@ public:
 private slots:
     void on_pushButton_clicked();
 private:
-    clsLan *lan;
+    clsGpib *lan;
 };
 
 #endif // MAINTESTWINDOW_H
