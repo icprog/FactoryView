@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 RC_FILE  =Icon.rc
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,7 +19,9 @@ SOURCES += main.cpp\
         MainTestWindow.cpp \
     connections/clsGpib.cpp \
     connections/clsConnection.cpp \
-    connections/clsUsb.cpp
+    connections/clsUsb.cpp \
+    connections/clsLan.cpp \
+    clsLanTest.cpp
 
 HEADERS  += MainTestWindow.h \
     connections/gpib488.h \
@@ -28,7 +30,9 @@ HEADERS  += MainTestWindow.h \
     connections/clsConnection.h \
     connections/visa.h \
     connections/visatype.h \
-    connections/clsUsb.h
+    connections/clsUsb.h \
+    connections/clsLan.h \
+    clsLanTest.h
 
 FORMS    += MainTestWindow.ui
 

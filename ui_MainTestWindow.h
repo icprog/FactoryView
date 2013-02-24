@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'MainTestWindow.ui'
 **
-** Created: Fri Feb 22 11:21:47 2013
+** Created: Sun Feb 24 17:04:20 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,6 +17,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
+#include <QtGui/QPushButton>
 #include <QtGui/QStatusBar>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
@@ -27,6 +28,7 @@ class Ui_MainTestWindow
 {
 public:
     QWidget *centralWidget;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -38,6 +40,9 @@ public:
         MainTestWindow->resize(400, 300);
         centralWidget = new QWidget(MainTestWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(190, 140, 75, 23));
         MainTestWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainTestWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -58,6 +63,7 @@ public:
     void retranslateUi(QMainWindow *MainTestWindow)
     {
         MainTestWindow->setWindowTitle(QApplication::translate("MainTestWindow", "FactoryView Main Test Window", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainTestWindow", "PushButton", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
