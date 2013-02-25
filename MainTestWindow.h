@@ -14,7 +14,7 @@ public:
 private slots:
     void on_pushButton_clicked();
 private:
-    clsGpib *lan;
+    clsLan *lan;
 };
 
 #endif // MAINTESTWINDOW_H

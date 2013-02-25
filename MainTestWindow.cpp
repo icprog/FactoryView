@@ -4,9 +4,9 @@ MainTestWindow::MainTestWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
-    lan = new clsGpib();
-//    lan->setAddress("192.168.0.199,6500");
-    lan->setAddress("6");
+    lan = new clsLan();
+     lan->setAddress("192.168.0.199,6500");
+   // lan->setAddress("6");
     lan->init();
 }
 

@@ -32,6 +32,10 @@ bool clsLan::init()
 }
 
 //Address formate "192.168.1.45,6500"
+/**
+ *这儿如果是4300传入数据的话，可以直接 用数据格式为“192.168.1.45(,4300)”
+ *
+ *?*/
 void clsLan::setAddress(QString address)
 {
     QStringList list = address.split(",");
