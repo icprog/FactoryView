@@ -24,6 +24,8 @@ public:
 
     static clsConnection *getConnection(QString strConnect);
     static clsConnection *getGpib();
+    static clsConnection *getUsb();
+    static clsConnection *getLan();
 };
 
 

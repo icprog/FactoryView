@@ -6,6 +6,7 @@ INPUT(
 ./debug\clsUsb.o
 ./debug\clsLan.o
 ./debug\clsLanTest.o
+./debug\Cnnt.o
 ./debug\moc_MainTestWindow.o
 ./debug\moc_clsConnection.o
 ./debug\moc_clsLanTest.o

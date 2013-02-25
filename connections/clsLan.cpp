@@ -68,7 +68,8 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn)
 
     if(!blInit)
         return "";
-
+    if(this->intPort==WK4300PORT )
+        strCommand = strCommand.append('\n');
 
     std::string str2 = std::string(strCommand.toAscii().data());
 
@@ -76,7 +77,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn)
     qApp->processEvents();
 
     socket->waitForBytesWritten(5000);
-  //  qDebug()<< "write command finished!";
+    //  qDebug()<< "write command finished!";
 
     /*This is just for 6500 need read back but 4300 does't need it.*/
     if(this->intPort==WK4300PORT && (!hasReturn))

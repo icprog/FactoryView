@@ -6,6 +6,7 @@ INPUT(
 ./release\clsUsb.o
 ./release\clsLan.o
 ./release\clsLanTest.o
+./release\Cnnt.o
 ./release\moc_MainTestWindow.o
 ./release\moc_clsConnection.o
 ./release\moc_clsLanTest.o

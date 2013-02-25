@@ -99,7 +99,7 @@ QString clsUsb::sendCommand(QString strCommand, bool hasReturn)
         buffer[retLen-1]='\0';
     strResult=QString((const char*)buffer);
 
-    qDebug()<< strResult;
+ //   qDebug()<< strResult;
 
     return strResult;
 }

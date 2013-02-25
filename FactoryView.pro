@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     connections/clsConnection.cpp \
     connections/clsUsb.cpp \
     connections/clsLan.cpp \
-    clsLanTest.cpp
+    clsLanTest.cpp \
+    Cnnt.cpp
 
 HEADERS  += MainTestWindow.h \
     connections/gpib488.h \
@@ -32,7 +33,8 @@ HEADERS  += MainTestWindow.h \
     connections/visatype.h \
     connections/clsUsb.h \
     connections/clsLan.h \
-    clsLanTest.h
+    clsLanTest.h \
+    Cnnt.h
 
 FORMS    += MainTestWindow.ui
 
