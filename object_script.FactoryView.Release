@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\MainTestWindow.o
+./release\clsGpib.o
+./release\clsConnection.o
+./release\clsUsb.o
+./release\clsLan.o
+./release\Cnnt.o
+./release\moc_MainTestWindow.o
+./release\moc_clsConnection.o
+./release\qrc_myRec.o
+);

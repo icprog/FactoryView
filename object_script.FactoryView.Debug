@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\MainTestWindow.o
+./debug\clsGpib.o
+./debug\clsConnection.o
+./debug\clsUsb.o
+./debug\clsLan.o
+./debug\Cnnt.o
+./debug\moc_MainTestWindow.o
+./debug\moc_clsConnection.o
+./debug\qrc_myRec.o
+);

@@ -1,11 +1,27 @@
-#include "clsConnection.h"
-#include "gpib488.h"
+/**
+ *这个是用于GPIB连接的类其中包括了GPIB初始化，设置GPIB地址默认是6，发送命令和解除连接。
+ *
+ *这个类只能连接一台GPIB设备，多余其他的GPIB设备不能使用这个类来操作。
+ *
+ *这个GPIB连接类只能用于连接WK的仪器使用，因为里面限定了以“WAYNE”开头的仪器设备返回的字符串。
+ *
+ *作者：蔡同松
+ *
+ *版本：V1.0
+ *
+ *时间：2013-2-22
+ *
+ *!*/
+
+#include "connections/clsGpib.h"
+#include "connections/clsConnection.h"
+#include "connections/gpib488.h"
 #include <QStringList>
 #include <QDebug>
 
-
 clsGpib::clsGpib()
 {
+    this->intAddress=6;
     this->blInit=false;
 
 }
@@ -48,11 +64,13 @@ bool clsGpib::init()
     return this->blInit;
 }
 
+
+
 void clsGpib::setAddress(QString address)
 {
     this->intAddress = address.toInt();
 
-    if(address.isEmpty())
+    if(address.isEmpty() || this->intAddress==0)
         this->intAddress =6;
 
 }
@@ -62,32 +80,13 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn)
 
     if(!blInit)
     {
-        Send(0,intAddress,"*IDN?",strlen("*IDN?"),DABend);
-        char data[50];
-        Receive (0,intAddress, data, 50, STOPend);
-
-        QString strData = QString(data);
-        QStringList strDataList = strData.split('\n');
-        if(strDataList.count()>1)
-        {
-            strData =strDataList[0];
-        }
-        else
-            strData="";
-
-        if(strData.isEmpty())
-        {
-            blInit=false;
-            return "";
-        }
-        else
-        {
-            blInit = true;
-        }
-
-
+        init();
     }
 
+    if(!blInit)
+        return "";
+
+    strCommand = strCommand.append('\n');
     const char *cmd;
     std::string xx= strCommand.toStdString();
     cmd = xx.c_str();
@@ -127,7 +126,7 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn)
     QString str= QString(buffer);
 
 
-    if(!str.isEmpty())
+    if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
     {
         if(str.at(0) =='N')
             str= str.remove(0,1);
@@ -142,29 +141,5 @@ void clsGpib::disConnect()
 {
     short addres[]={(short) intAddress};
     EnableLocal(0,addres);
-     blInit=false;
-}
-
-
-connectionFactory::connectionFactory()
-{
-}
-
-clsConnection *connectionFactory::getConnection(QString strConnect)
-{
-    if(strConnect.toUpper()=="GPIB")
-    {
-        return new clsGpib;
-    }
-    else
-    {
-        return (clsConnection *)0;
-    }
-
-}
-
-
-clsConnection *connectionFactory::getGpib()
-{
-    return new clsGpib;
+    blInit=false;
 }

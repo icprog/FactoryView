@@ -4,24 +4,40 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 RC_FILE  =Icon.rc
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = FactoryView
 TEMPLATE = app
 
-LIBS    += gpib488.obj
+LIBS    += gpib488.obj \
+        visa.lib
+
 
 SOURCES += main.cpp\
         MainTestWindow.cpp \
-    clsConnection.cpp
+    connections/clsGpib.cpp \
+    connections/clsConnection.cpp \
+    connections/clsUsb.cpp \
+    connections/clsLan.cpp \
+    connections/Cnnt.cpp
 
 HEADERS  += MainTestWindow.h \
-    clsConnection.h \
-    gpib488.h
+    connections/gpib488.h \
+    connections/GPIB.h \
+    connections/clsGpib.h \
+    connections/clsConnection.h \
+    connections/visa.h \
+    connections/visatype.h \
+    connections/clsUsb.h \
+    connections/clsLan.h \
+    connections/Cnnt.h
 
 FORMS    += MainTestWindow.ui
 
 RESOURCES += \
     myRec.qrc
+
+OTHER_FILES += \
+    connections/ReadMe.txt

@@ -17,22 +17,6 @@ public:
 };
 
 
-
-class clsGpib:public clsConnection
-{
-public:
-    clsGpib();
-    bool init();
-    void setAddress(QString address);
-    QString sendCommand(QString strCommand, bool hasReturn=false);
-    void disConnect();
-private:
-    bool blInit;
-    int intAddress;
-
-};
-
-
 class connectionFactory
 {
 public:
@@ -40,6 +24,8 @@ public:
 
     static clsConnection *getConnection(QString strConnect);
     static clsConnection *getGpib();
+    static clsConnection *getUsb();
+    static clsConnection *getLan();
 };
 
 
