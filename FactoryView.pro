@@ -21,8 +21,7 @@ SOURCES += main.cpp\
     connections/clsConnection.cpp \
     connections/clsUsb.cpp \
     connections/clsLan.cpp \
-    clsLanTest.cpp \
-    Cnnt.cpp
+    connections/Cnnt.cpp
 
 HEADERS  += MainTestWindow.h \
     connections/gpib488.h \
@@ -33,10 +32,12 @@ HEADERS  += MainTestWindow.h \
     connections/visatype.h \
     connections/clsUsb.h \
     connections/clsLan.h \
-    clsLanTest.h \
-    Cnnt.h
+    connections/Cnnt.h
 
 FORMS    += MainTestWindow.ui
 
 RESOURCES += \
     myRec.qrc
+
+OTHER_FILES += \
+    connections/ReadMe.txt

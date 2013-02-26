@@ -4,8 +4,8 @@
 #include <QDebug>
 #include "connections/clsGpib.h"
 #include "connections/clsLan.h"
-#include "clsLanTest.h"
-#include "Cnnt.h"
+
+#include "connections/Cnnt.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

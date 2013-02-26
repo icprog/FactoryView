@@ -3,7 +3,6 @@
 
 #include "ui_MainTestWindow.h"
 #include "connections/clsLan.h"
-#include "clsLanTest.h"
 #include "connections/clsGpib.h"
 class MainTestWindow : public QMainWindow, private Ui::MainTestWindow
 {
