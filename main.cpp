@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 //    MainTestWindow w;
 //    w.show();
 
-   // Global::Instance()->setUpConnection("GPIB","6");
-    Cnnt::Instance()->setUpConnection("USB","6");
+    Cnnt::Instance()->setUpConnection("GPIB","6");
+    //Cnnt::Instance()->setUpConnection("USB","6");
     //qDebug()<< Global::Instance()->QueryConnectionStatus();
 
     qDebug()<<Cnnt::Instance()->sendCommand(":MEAS:TRIG",true);
